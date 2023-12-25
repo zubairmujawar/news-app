@@ -5,6 +5,7 @@ export const AllCards = ({ category }) => {
   const [news, setnews] = useState([]);
   const [loading, setloading] = useState(true);
 
+  // set language also
   let apikey = '1d908538c91280351dc325c66b55931c';
  let url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=in&max=10&apikey=${apikey}`
 
