@@ -1,16 +1,15 @@
 import React from "react";
 
 export const Card = ({ title, description, src, publishedAt, newsUrl,source }) => {
-  const timeShow = new Date(publishedAt)
-  const dateFormate = timeShow.toLocaleString()
+  const timeShow = new Date(publishedAt);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const dateFormate = timeShow.toLocaleDateString(undefined, options);
   return (
     <div
       className="card  ml-auto bg-dark text-light mb-3 my-3 mx-3 px-3 py-3 d-inline-block p-2"
-      style={{ maxWidth: "18rem", maxHeight:"30rem" }}
     >
       <img
         src={src?src: "../news.png"}
-        style={{ minHeight: "180px", minWidth: "300px", maxHeight: "200px", maxWidth: "360px" }}
         className="card-img-top" alt="img"
       />
       <div className="card-body">
@@ -26,7 +25,7 @@ export const Card = ({ title, description, src, publishedAt, newsUrl,source }) =
         source && typeof source =="string" &&(source.slice(0,10))}
         </p>
         <a href={newsUrl} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
-          Read more 
+          See more 
         </a>
       </div>
     </div>
